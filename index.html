@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Try-On</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#1b2534',
+                '50': '#f5f7fa',
+                '100': '#ebeef3',
+                '200': '#d3dae4',
+                '300': '#acb8cc',
+                '400': '#7f91af',
+                '500': '#5f7396',
+                '600': '#4b5c7d',
+                '700': '#3d4b66',
+                '800': '#354056',
+                '900': '#1b2534',
+                '950': '#111827',
+              },
+              accent: {
+                DEFAULT: '#d4a76a',
+                light: '#e8c99b',
+                dark: '#b8894d',
+              },
+              ajio: {
+                navy: '#1b2534',
+                dark: '#111827',
+                cream: '#faf8f5',
+                gold: '#d4a76a',
+                green: '#0f8a65',
+                red: '#d32f2f',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            borderRadius: {
+              'none': '0px',
+            },
+            animation: {
+              sparkle: 'sparkle 2.5s ease-in-out infinite',
+              'slide-in-up': 'slide-in-up 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+              'pulse-bright': 'pulse-bright 2s infinite',
+              shimmer: 'shimmer 2s linear infinite',
+            },
+            keyframes: {
+              sparkle: {
+                '0%, 100%': { transform: 'scale(1) rotate(0deg)', opacity: '1' },
+                '25%': { transform: 'scale(0.8) rotate(15deg)', opacity: '0.7' },
+                '50%': { transform: 'scale(1.2) rotate(-10deg)', opacity: '1' },
+                '75%': { transform: 'scale(0.9) rotate(5deg)', opacity: '0.8' },
+              },
+              'slide-in-up': {
+                'from': { opacity: '0', transform: 'translateY(20px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'pulse-bright': {
+                '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0 rgba(27, 37, 52, 0.4)' },
+                '70%': { opacity: '1', boxShadow: '0 0 0 10px rgba(27, 37, 52, 0)' },
+              },
+              shimmer: {
+                'from': { backgroundPosition: '-1000px 0' },
+                'to': { backgroundPosition: '1000px 0' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.10.0",
+    "react-image-crop": "https://esm.sh/react-image-crop@^11.0.6",
+    "framer-motion": "https://esm.sh/framer-motion@^11.2.12",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^2.4.0",
+    "@tsparticles/react": "https://esm.sh/@tsparticles/react@^3.0.0",
+    "@tsparticles/engine": "https://esm.sh/@tsparticles/engine@^3.5.0",
+    "@tsparticles/slim": "https://esm.sh/@tsparticles/slim@^3.5.0",
+    "eact": "https://aistudiocdn.com/eact@^0.0.1-security"
+  }
+}
+</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://esm.sh/react-image-crop@^11.0.6/dist/ReactCrop.css" />
+    <link rel="stylesheet" href="/index.css" />
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
