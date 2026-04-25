@@ -491,6 +491,7 @@ Your task is to synthesize all inputs (prioritizing the AI analysis if available
 };
 
 export const generateGroupPhoto = async (vibe: string, memberImages: string[]): Promise<string> => {
+    if (!ai) throw new Error("AI service not available - API key not configured");
     const textPart = { text: `You are an expert AI fashion photographer. Create a single, photorealistic group photoshoot image based on a "vibe" and individual images of the models.
 
 *Vibe:* "${vibe}"
@@ -518,6 +519,7 @@ export const generateGroupPhoto = async (vibe: string, memberImages: string[]): 
 };
 
 export const generateModelImage = async (userImage: File): Promise<string> => {
+    if (!ai) throw new Error("AI service not available - API key not configured");
     const userImagePart = await fileToPart(userImage);
     const prompt = `You are an expert AI photo editor. Your ONLY task is to extract the main subject from the provided photo and place them on a clean, light-gray studio backdrop.
 
@@ -537,6 +539,7 @@ export const generateModelImage = async (userImage: File): Promise<string> => {
 };
 
 export const generateVirtualTryOnImage = async (modelImageUrl: string, garmentImage: File, garmentInfo: WardrobeItem): Promise<string> => {
+    if (!ai) throw new Error("AI service not available - API key not configured");
     const modelImagePart = dataUrlToPart(modelImageUrl);
     const garmentImagePart = await fileToPart(garmentImage);
     
@@ -607,6 +610,7 @@ Your output MUST be ONLY the single, final image. NO TEXT.`;
 };
 
 export const applyFullOutfitFromImage = async (modelImageUrl: string, outfitMannequinUrl: string): Promise<string> => {
+    if (!ai) throw new Error("AI service not available - API key not configured");
     const modelImagePart = dataUrlToPart(modelImageUrl);
     const outfitImagePart = dataUrlToPart(outfitMannequinUrl);
     
@@ -635,6 +639,7 @@ export const applyFullOutfitFromImage = async (modelImageUrl: string, outfitMann
 };
 
 export const generatePoseVariation = async (tryOnImageUrl: string, poseInstruction: string): Promise<string> => {
+    if (!ai) throw new Error("AI service not available - API key not configured");
     const tryOnImagePart = dataUrlToPart(tryOnImageUrl);
     const prompt = `You are an expert AI fashion photographer. Your task is to regenerate the provided image from a new camera perspective, adhering to strict consistency rules.
 
@@ -657,6 +662,7 @@ export const generatePoseVariation = async (tryOnImageUrl: string, poseInstructi
 };
 
 export const generateBackgroundChange = async (baseImageUrl: string, backgroundPrompt: string): Promise<string> => {
+    if (!ai) throw new Error("AI service not available - API key not configured");
     const baseImagePart = dataUrlToPart(baseImageUrl);
     const prompt = `You are an expert AI photo editor. Your task is to seamlessly replace the background of the provided image with a new one described in the prompt, following strict rules.
 
@@ -753,6 +759,7 @@ export const generateOutfitsForEvent = async (
 };
 
 export const generateOutfitImage = async (outfitItems: WardrobeItem[]): Promise<string> => {
+    if (!ai) throw new Error("AI service not available - API key not configured");
     const itemsList = outfitItems.map(item => `${item.name} (${item.category})`).join(', ');
     
     const prompt = `CRITICAL INSTRUCTIONS - You MUST follow these rules EXACTLY:
